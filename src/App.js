@@ -733,7 +733,7 @@ export default function App() {
         .alert-success-bg { background-color: var(--theme-alert-success-bg); } .alert-success-border { border-color: var(--theme-alert-success-border); } .alert-success-text { color: var(--theme-alert-success-text); }
         .alert-warning-bg { background-color: var(--theme-alert-warning-bg); } .alert-warning-border { border-color: var(--theme-alert-warning-border); } .alert-warning-text { color: var(--theme-alert-warning-text); }
       `}</style>
-      <div className="min-h-screen w-full flex flex-col lg:flex-row">
+      <div className="min-h-screen w-full flex flex-col lg:flex-row" style={{maxWidth: '1920px', margin: '0 auto'}}>
         <aside className="w-full lg:w-1/3 lg:max-w-md xl:max-w-lg p-4 space-y-4 bg-section-bg border-r border-border-light overflow-y-auto">
           <header className="flex items-center justify-between p-2">
             <div className="flex items-center space-x-3">
