@@ -23,9 +23,5 @@
     "production": [">0.2%", "not dead", "not op_mini all"],
     "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
   },
-  "devDependencies": {
-    "tailwindcss": "^3.4.4",
-    "autoprefixer": "^10.4.19",
-    "postcss": "^8.4.38"
-  }
+  "devDependencies": { "tailwindcss": "^3.4.4" }
 }
