@@ -99,6 +99,12 @@ const ApiKeyManager = ({ apiKey, setApiKey, provider }) => {
                 <Button onClick={handleSave} className="flex-shrink-0"><Save className="w-5 h-5" /></Button>
             </div>
             {isSaved && <p className="text-sm text-green-500 mt-2">API 키가 저장되었습니다.</p>}
+            <div className="mt-2 p-2 bg-gray-50 dark:bg-gray-800 rounded-md">
+                <p className="text-xs text-tertiary flex items-center">
+                    <Shield className="w-3 h-3 mr-1" />
+                    API 키는 오직 본인의 브라우저에만 저장되며, 다른 사용자나 서버에 전송되지 않습니다.
+                </p>
+            </div>
             <p className="text-xs text-tertiary mt-2">각 기능 사용 시 예상 비용 정보는 미리보기 화면 하단 FAQ를 참고해주세요.</p>
         </Card>
     );
@@ -364,6 +370,38 @@ const PreviewArea = ({ theme, mode, setMode, appliedBackground }) => {
                         </Card>
                     </div>
                     <div className="md:col-span-2">
+                        <h3 className="text-xl font-bold title-font text-primary mb-2">프로그래시브 바 & 상태 표시</h3>
+                        <Card className="p-4 space-y-4">
+                            <div className="space-y-2">
+                                <div className="flex justify-between items-center">
+                                    <span className="text-sm font-medium text-secondary">프로젝트 진행률</span>
+                                    <span className="text-sm font-medium text-primary">75%</span>
+                                </div>
+                                <div className="w-full rounded-full h-2" style={{backgroundColor: 'var(--theme-border-light)'}}>
+                                    <div className="btn-primary h-2 rounded-full transition-all duration-300" style={{width: '75%'}}></div>
+                                </div>
+                            </div>
+                            <div className="space-y-2">
+                                <div className="flex justify-between items-center">
+                                    <span className="text-sm font-medium text-secondary">스토리지 사용량</span>
+                                    <span className="text-sm font-medium text-primary">4.2GB / 10GB</span>
+                                </div>
+                                <div className="w-full rounded-full h-2" style={{backgroundColor: 'var(--theme-border-light)'}}>
+                                    <div className="h-2 rounded-full transition-all duration-300" style={{width: '42%', backgroundColor: 'var(--theme-accent-secondary)'}}></div>
+                                </div>
+                            </div>
+                            <div className="space-y-2">
+                                <div className="flex justify-between items-center">
+                                    <span className="text-sm font-medium text-secondary">다운로드 진행률</span>
+                                    <span className="text-sm font-medium text-primary">완료</span>
+                                </div>
+                                <div className="w-full rounded-full h-2" style={{backgroundColor: 'var(--theme-border-light)'}}>
+                                    <div className="h-2 rounded-full transition-all duration-300" style={{width: '100%', backgroundColor: 'var(--theme-badge-success-text)'}}></div>
+                                </div>
+                            </div>
+                        </Card>
+                    </div>
+                    <div className="md:col-span-2">
                         <h3 className="text-xl font-bold title-font text-primary mb-2">알림(Alerts)</h3>
                         <div className="space-y-4">
                             <Alert variant="info" icon={Info}>정보 알림입니다. 추가 정보를 확인하세요.</Alert>
@@ -371,6 +409,190 @@ const PreviewArea = ({ theme, mode, setMode, appliedBackground }) => {
                             <Alert variant="warning" icon={AlertTriangle}>경고 알림입니다. 주의가 필요합니다.</Alert>
                             <Alert variant="error" icon={ServerCrash}>오류 알림입니다. 문제가 발생했습니다.</Alert>
                         </div>
+                    </div>
+                    <div className="md:col-span-2">
+                        <h3 className="text-xl font-bold title-font text-primary mb-2">카드 갤러리</h3>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                            <Card className="overflow-hidden">
+                                <div className="h-32 bg-gradient-to-br from-blue-500 to-purple-600"></div>
+                                <div className="p-4">
+                                    <h4 className="font-bold text-primary mb-2">프로젝트 A</h4>
+                                    <p className="text-sm text-secondary">웹 애플리케이션 개발 프로젝트입니다.</p>
+                                    <div className="mt-3 flex items-center justify-between">
+                                        <Badge variant="primary">진행중</Badge>
+                                        <span className="text-xs text-tertiary">2024.01.15</span>
+                                    </div>
+                                </div>
+                            </Card>
+                            <Card className="overflow-hidden">
+                                <div className="h-32 bg-gradient-to-br from-green-500 to-teal-600"></div>
+                                <div className="p-4">
+                                    <h4 className="font-bold text-primary mb-2">프로젝트 B</h4>
+                                    <p className="text-sm text-secondary">모바일 앱 디자인 프로젝트입니다.</p>
+                                    <div className="mt-3 flex items-center justify-between">
+                                        <Badge variant="success">완료</Badge>
+                                        <span className="text-xs text-tertiary">2024.01.10</span>
+                                    </div>
+                                </div>
+                            </Card>
+                            <Card className="overflow-hidden">
+                                <div className="h-32 bg-gradient-to-br from-orange-500 to-red-600"></div>
+                                <div className="p-4">
+                                    <h4 className="font-bold text-primary mb-2">프로젝트 C</h4>
+                                    <p className="text-sm text-secondary">브랜딩 및 로고 디자인 프로젝트입니다.</p>
+                                    <div className="mt-3 flex items-center justify-between">
+                                        <Badge variant="warning">검토중</Badge>
+                                        <span className="text-xs text-tertiary">2024.01.20</span>
+                                    </div>
+                                </div>
+                            </Card>
+                        </div>
+                    </div>
+                    <div className="md:col-span-2">
+                        <h3 className="text-xl font-bold title-font text-primary mb-2">통계 대시보드</h3>
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <Card className="p-4 text-center">
+                                <div className="text-2xl font-bold text-primary">1,234</div>
+                                <div className="text-sm text-secondary mt-1">총 방문자</div>
+                                <div className="text-xs text-green-500 mt-1">↗ +12%</div>
+                            </Card>
+                            <Card className="p-4 text-center">
+                                <div className="text-2xl font-bold text-primary">89</div>
+                                <div className="text-sm text-secondary mt-1">완료된 프로젝트</div>
+                                <div className="text-xs text-blue-500 mt-1">↗ +5%</div>
+                            </Card>
+                            <Card className="p-4 text-center">
+                                <div className="text-2xl font-bold text-primary">4.8</div>
+                                <div className="text-sm text-secondary mt-1">평균 평점</div>
+                                <div className="text-xs text-yellow-500 mt-1">★★★★★</div>
+                            </Card>
+                            <Card className="p-4 text-center">
+                                <div className="text-2xl font-bold text-primary">₩2.1M</div>
+                                <div className="text-sm text-secondary mt-1">총 수익</div>
+                                <div className="text-xs text-green-500 mt-1">↗ +18%</div>
+                            </Card>
+                        </div>
+                    </div>
+                    <div className="md:col-span-2">
+                        <h3 className="text-xl font-bold title-font text-primary mb-2">데이터 테이블</h3>
+                        <Card className="overflow-hidden">
+                            <table className="w-full">
+                                <thead className="table-header-bg">
+                                    <tr>
+                                        <th className="text-left p-3 font-semibold text-primary">이름</th>
+                                        <th className="text-left p-3 font-semibold text-primary">상태</th>
+                                        <th className="text-left p-3 font-semibold text-primary">날짜</th>
+                                        <th className="text-left p-3 font-semibold text-primary">액션</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr className="table-row-hover cursor-pointer">
+                                        <td className="p-3 text-primary table-cell-border">김민수</td>
+                                        <td className="p-3 table-cell-border"><Badge variant="success">활성</Badge></td>
+                                        <td className="p-3 text-secondary table-cell-border">2024.01.15</td>
+                                        <td className="p-3 table-cell-border"><Button variant="secondary" className="py-1 px-2 text-xs">편집</Button></td>
+                                    </tr>
+                                    <tr className="table-row-hover cursor-pointer">
+                                        <td className="p-3 text-primary table-cell-border">박영희</td>
+                                        <td className="p-3 table-cell-border"><Badge variant="warning">대기</Badge></td>
+                                        <td className="p-3 text-secondary table-cell-border">2024.01.14</td>
+                                        <td className="p-3 table-cell-border"><Button variant="secondary" className="py-1 px-2 text-xs">편집</Button></td>
+                                    </tr>
+                                    <tr className="table-row-hover cursor-pointer">
+                                        <td className="p-3 text-primary table-cell-border">이철수</td>
+                                        <td className="p-3 table-cell-border"><Badge variant="error">비활성</Badge></td>
+                                        <td className="p-3 text-secondary table-cell-border">2024.01.13</td>
+                                        <td className="p-3 table-cell-border"><Button variant="secondary" className="py-1 px-2 text-xs">편집</Button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </Card>
+                    </div>
+                    <div className="md:col-span-2">
+                        <h3 className="text-xl font-bold title-font text-primary mb-2">타임라인</h3>
+                        <Card className="p-4">
+                            <div className="space-y-4">
+                                <div className="flex items-start space-x-3">
+                                    <div className="w-3 h-3 rounded-full mt-1.5" style={{backgroundColor: 'var(--theme-accent-primary)'}}></div>
+                                    <div className="flex-1">
+                                        <div className="flex items-center justify-between">
+                                            <h4 className="font-semibold text-primary">프로젝트 시작</h4>
+                                            <span className="text-xs text-tertiary">2024.01.01</span>
+                                        </div>
+                                        <p className="text-sm text-secondary mt-1">새로운 웹 애플리케이션 개발 프로젝트가 시작되었습니다.</p>
+                                    </div>
+                                </div>
+                                <div className="flex items-start space-x-3">
+                                    <div className="w-3 h-3 rounded-full mt-1.5" style={{backgroundColor: 'var(--theme-accent-secondary)'}}></div>
+                                    <div className="flex-1">
+                                        <div className="flex items-center justify-between">
+                                            <h4 className="font-semibold text-primary">디자인 완료</h4>
+                                            <span className="text-xs text-tertiary">2024.01.10</span>
+                                        </div>
+                                        <p className="text-sm text-secondary mt-1">UI/UX 디자인 작업이 완료되었습니다.</p>
+                                    </div>
+                                </div>
+                                <div className="flex items-start space-x-3">
+                                    <div className="w-3 h-3 rounded-full mt-1.5" style={{backgroundColor: 'var(--theme-badge-success-text)'}}></div>
+                                    <div className="flex-1">
+                                        <div className="flex items-center justify-between">
+                                            <h4 className="font-semibold text-primary">개발 완료</h4>
+                                            <span className="text-xs text-tertiary">2024.01.20</span>
+                                        </div>
+                                        <p className="text-sm text-secondary mt-1">프론트엔드 개발이 완료되었습니다.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </Card>
+                    </div>
+                    <div className="md:col-span-2">
+                        <h3 className="text-xl font-bold title-font text-primary mb-2">댓글 시스템</h3>
+                        <Card className="p-4">
+                            <div className="space-y-4">
+                                <div className="flex items-start space-x-3">
+                                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold">김</div>
+                                    <div className="flex-1">
+                                        <div className="flex items-center space-x-2">
+                                            <span className="font-semibold text-primary">김민수</span>
+                                            <span className="text-xs text-tertiary">2시간 전</span>
+                                        </div>
+                                        <p className="text-sm text-secondary mt-1">정말 좋은 프로젝트네요! 디자인이 깔끔하고 사용자 경험이 훌륭합니다.</p>
+                                        <div className="flex items-center space-x-3 mt-2">
+                                            <button className="text-xs text-tertiary hover:text-primary">좋아요</button>
+                                            <button className="text-xs text-tertiary hover:text-primary">답글</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="flex items-start space-x-3">
+                                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center text-white font-bold">박</div>
+                                    <div className="flex-1">
+                                        <div className="flex items-center space-x-2">
+                                            <span className="font-semibold text-primary">박영희</span>
+                                            <span className="text-xs text-tertiary">1일 전</span>
+                                        </div>
+                                        <p className="text-sm text-secondary mt-1">기능이 매우 직관적이고 사용하기 편리합니다. 개발자분께 감사드립니다.</p>
+                                        <div className="flex items-center space-x-3 mt-2">
+                                            <button className="text-xs text-tertiary hover:text-primary">좋아요</button>
+                                            <button className="text-xs text-tertiary hover:text-primary">답글</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="flex items-start space-x-3">
+                                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center text-white font-bold">이</div>
+                                    <div className="flex-1">
+                                        <div className="flex items-center space-x-2">
+                                            <span className="font-semibold text-primary">이철수</span>
+                                            <span className="text-xs text-tertiary">3일 전</span>
+                                        </div>
+                                        <p className="text-sm text-secondary mt-1">다음 업데이트가 기대됩니다. 새로운 기능들이 추가되면 알려주세요!</p>
+                                        <div className="flex items-center space-x-3 mt-2">
+                                            <button className="text-xs text-tertiary hover:text-primary">좋아요</button>
+                                            <button className="text-xs text-tertiary hover:text-primary">답글</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </Card>
                     </div>
                     <div className="md:col-span-2">
                         <h3 className="text-xl font-bold title-font text-primary mb-2">효과(Effects)</h3>
