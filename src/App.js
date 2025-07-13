@@ -911,7 +911,21 @@ export default function App() {
     } else { // ChatGPT
       const payload = [
           { role: "system", content: systemPrompt },
-          { role: "user", content: `사용자 요청: "${text}".\n\n반드시 이 JSON 구조를 따라야 합니다:\n${JSON.stringify(initialTheme, null, 2)}` }
+          { 
+            role: "user", 
+            content: [
+              {
+                type: "text",
+                text: `사용자 요청: "${text}".\n\n반드시 이 JSON 구조를 따라야 합니다:\n${JSON.stringify(initialTheme, null, 2)}`
+              },
+              ...(imageBase64 ? [{
+                type: "image_url",
+                image_url: {
+                  url: `data:image/png;base64,${imageBase64}`
+                }
+              }] : [])
+            ]
+          }
       ];
       newThemeText = await generateWithChatGPT(activeApiKey, payload);
     }
