@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
-import { Palette, Sun, Moon, Image as ImageIcon, Type, Loader, ServerCrash, Wand2, Info, AlertTriangle, CheckCircle, Copy, Download, MessageSquare, Shield, SlidersHorizontal, ChevronDown, X, Smartphone, Tablet, Monitor, Sparkles, ImagePlus, BotMessageSquare, BrainCircuit, RefreshCw, KeyRound, Save, RotateCcw } from 'lucide-react';
+import { Palette, Sun, Moon, Image as ImageIcon, Type, Loader, ServerCrash, Wand2, Info, AlertTriangle, CheckCircle, Copy, Download, MessageSquare, Shield, SlidersHorizontal, ChevronDown, X, Smartphone, Tablet, Monitor, Sparkles, ImagePlus, BotMessageSquare, BrainCircuit, KeyRound, Save, RotateCcw } from 'lucide-react';
 
 // =================================================================
 // 전체 구조를 포함한 초기 테마 데이터 (templete_andrei-tarkovsky.json 기반)
@@ -290,7 +290,7 @@ const PreviewArea = ({ theme, mode, setMode, appliedBackground }) => {
   const displayName = theme?.displayName || "테마 이름";
   const [activeTab, setActiveTab] = useState('profile');
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [openAccordion, setOpenAccordion] = useState(0);
+  // const [openAccordion, setOpenAccordion] = useState(0); // 미사용
   const [openFaq, setOpenFaq] = useState(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [viewMode, setViewMode] = useState('desktop');
@@ -733,7 +733,7 @@ export default function App() {
         .alert-success-bg { background-color: var(--theme-alert-success-bg); } .alert-success-border { border-color: var(--theme-alert-success-border); } .alert-success-text { color: var(--theme-alert-success-text); }
         .alert-warning-bg { background-color: var(--theme-alert-warning-bg); } .alert-warning-border { border-color: var(--theme-alert-warning-border); } .alert-warning-text { color: var(--theme-alert-warning-text); }
       `}</style>
-      <div className="min-h-screen w-full flex flex-col lg:flex-row">
+      <div className="min-h-screen w-full flex flex-col lg:flex-row" style={{maxWidth: '1920px', margin: '0 auto'}}>
         <aside className="w-full lg:w-1/3 lg:max-w-md xl:max-w-lg p-4 space-y-4 bg-section-bg border-r border-border-light overflow-y-auto">
           <header className="flex items-center justify-between p-2">
             <div className="flex items-center space-x-3">
