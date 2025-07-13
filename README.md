@@ -2,7 +2,7 @@
 
 > AI의 힘으로 웹사이트 테마를 생성하고 실시간으로 미리보기하세요
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-🚀%20체험해보기-blue?style=for-the-badge)](https://mirinaeman-themes-generator-1xaq8w0ch-heglerkims-projects.vercel.app/)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-🚀%20체험해보기-blue?style=for-the-badge)](https://mirinaeman-themes-generator.vercel.app/)
 
 ## ✨ 주요 기능
 
@@ -37,7 +37,7 @@
 
 ### 사용 방법
 
-1. **[라이브 데모](https://mirinaeman-themes-generator-1xaq8w0ch-heglerkims-projects.vercel.app/)** 접속
+1. **[라이브 데모](https://mirinaeman-themes-generator.vercel.app/)** 접속
 2. **API 제공사 선택** (Gemini 또는 ChatGPT)
 3. **API 키 입력** (브라우저에만 저장됨)
 4. **테마 생성 방법 선택**:
@@ -145,4 +145,4 @@ npm run build
 
 ⭐ **이 프로젝트가 유용하다면 스타를 눌러주세요!**
 
-[🚀 지금 바로 체험해보기](https://mirinaeman-themes-generator-1xaq8w0ch-heglerkims-projects.vercel.app/) 
+[🚀 지금 바로 체험해보기](https://mirinaeman-themes-generator.vercel.app/) 
