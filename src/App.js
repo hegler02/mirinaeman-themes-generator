@@ -300,6 +300,24 @@ const PreviewArea = ({ theme, mode, setMode, appliedBackground }) => {
   const [openFaq, setOpenFaq] = useState(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [viewMode, setViewMode] = useState('desktop');
+  const [currentSlide, setCurrentSlide] = useState(0);
+  
+  const carouselItems = [
+    { id: 1, title: "웹 개발 서비스", subtitle: "모던하고 반응형 웹사이트", bg: "from-blue-600 to-purple-600" },
+    { id: 2, title: "모바일 앱 개발", subtitle: "iOS & Android 네이티브 앱", bg: "from-green-600 to-teal-600" },
+    { id: 3, title: "UI/UX 디자인", subtitle: "사용자 중심의 인터페이스", bg: "from-orange-600 to-red-600" }
+  ];
+  
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % carouselItems.length);
+  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + carouselItems.length) % carouselItems.length);
+  
+  // 자동 슬라이드 기능
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % carouselItems.length);
+    }, 5000); // 5초마다 자동 전환
+    return () => clearInterval(interval);
+  }, [carouselItems.length]);
 
   const viewportClasses = { desktop: 'w-full', tablet: 'max-w-3xl mx-auto', mobile: 'max-w-sm mx-auto' };
   const DeviceButton = ({ device, label, icon: Icon }) => (
@@ -335,6 +353,89 @@ const PreviewArea = ({ theme, mode, setMode, appliedBackground }) => {
                     <div className="nav-bg border-t nav-border"><nav className="flex flex-col p-4 space-y-2"><a href="#" className="nav-link-active font-semibold block px-3 py-2 rounded-md">Home</a><a href="#" className="nav-link block px-3 py-2 rounded-md">About</a><a href="#" className="nav-link block px-3 py-2 rounded-md">Portfolio</a><a href="#" className="nav-link block px-3 py-2 rounded-md">Contact</a></nav></div>
                 )}
             </header>
+            
+            {/* 히어로 섹션 */}
+            <div className="relative h-96 flex items-center justify-center text-white overflow-hidden" style={{
+                background: `linear-gradient(135deg, var(--theme-accent-primary), var(--theme-accent-secondary))`,
+                backgroundColor: 'var(--theme-accent-primary)' // 폴백
+            }}>
+                <div className="absolute inset-0 bg-black bg-opacity-20"></div>
+                <div className="relative z-10 text-center px-4">
+                    <h1 className="text-4xl md:text-6xl font-bold title-font mb-4" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.5)'}}>
+                        {displayName}
+                    </h1>
+                    <p className="text-xl md:text-2xl mb-6 text-gray-100">
+                        AI가 생성한 테마로 완성된 웹사이트
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                        <Button variant="primary" className="text-lg px-8 py-3 bg-white text-gray-900 hover:bg-gray-100">
+                            시작하기
+                        </Button>
+                        <Button variant="secondary" className="text-lg px-8 py-3 bg-transparent border-2 border-white text-white hover:bg-white hover:text-gray-900">
+                            더 알아보기
+                        </Button>
+                    </div>
+                </div>
+            </div>
+            
+            {/* 캐러셀 섹션 */}
+            <div className="bg-section-bg py-12">
+                <div className="max-w-6xl mx-auto px-6">
+                    <h2 className="text-3xl font-bold title-font text-primary text-center mb-8">우리의 서비스</h2>
+                    <div className="relative">
+                        <div className="overflow-hidden rounded-lg">
+                            <div className="flex transition-transform duration-500 ease-in-out" style={{transform: `translateX(-${currentSlide * 100}%)`}}>
+                                {carouselItems.map((item, index) => (
+                                    <div key={item.id} className="w-full flex-shrink-0">
+                                        <div className={`h-64 bg-gradient-to-br ${item.bg} rounded-lg flex items-center justify-center text-white relative overflow-hidden`}>
+                                            <div className="text-center z-10">
+                                                <h3 className="text-3xl font-bold title-font mb-2">{item.title}</h3>
+                                                <p className="text-lg text-gray-100">{item.subtitle}</p>
+                                            </div>
+                                            <div className="absolute inset-0 bg-black bg-opacity-10"></div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                        
+                        {/* 캐러셀 화살표 */}
+                        <button 
+                            onClick={prevSlide}
+                            className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 hover:bg-opacity-100 text-gray-800 p-2 rounded-full shadow-lg transition-all duration-200"
+                        >
+                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </button>
+                        <button 
+                            onClick={nextSlide}
+                            className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 hover:bg-opacity-100 text-gray-800 p-2 rounded-full shadow-lg transition-all duration-200"
+                        >
+                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                        
+                        {/* 캐러셀 인디케이터 */}
+                        <div className="flex justify-center mt-4 space-x-2">
+                            {carouselItems.map((_, index) => (
+                                <button
+                                    key={index}
+                                    onClick={() => setCurrentSlide(index)}
+                                    className="w-3 h-3 rounded-full transition-colors duration-200"
+                                    style={{
+                                        backgroundColor: index === currentSlide 
+                                            ? 'var(--theme-accent-primary)' 
+                                            : 'var(--theme-border-medium)'
+                                    }}
+                                />
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
             <div className="p-6 space-y-6">
                 <h2 className="text-3xl font-bold title-font text-primary transition-colors duration-300" style={{textShadow: '1px 1px 3px rgba(0,0,0,0.3)'}}>"{displayName}" 테마로 적용되었습니다.</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
