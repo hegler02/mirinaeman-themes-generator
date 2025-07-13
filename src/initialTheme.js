@@ -1,0 +1,39 @@
+// 초기 테마 데이터를 별도 파일로 분리
+export const initialTheme = {
+  "id": "tarkovsky-mirror-full",
+  "displayName": "타르코프스키의 거울",
+  "analysis": "이 테마는 안드레이 타르코프스키 감독의 영화 '거울'에서 영감을 받았습니다. 빛바랜 기억, 물안개 낀 아침, 축축한 흙의 색감을 중심으로, 느리고 명상적인 사용자 경험을 제공하여 철학적인 사색을 유도하는 것을 목표로 합니다.",
+  "font": { "primary": "EB Garamond, Noto Serif KR, serif", "title": "Cormorant, Noto Serif KR, serif", "mono": "Menlo, Consolas, Monaco, 'Liberation Mono', 'Lucida Console', monospace" },
+  "colors": {
+    "light": {
+      "basic": {"--theme-body-bg":"#F4F2E9","--theme-section-bg":"#EAE6DB","--theme-card-bg":"#FFFFFF","--theme-text-primary":"#504A40","--theme-text-secondary":"#7A7060","--theme-text-tertiary":"#A0988C","--theme-accent-primary":"#6B8E23","--theme-accent-secondary":"#4682B4","--theme-border-light":"#DCD5C6","--theme-border-medium":"#C0B6A2"},
+      "navigation": {"--theme-nav-brand":"#504A40","--theme-nav-link":"#7A7060","--theme-nav-link-hover":"#6B8E23","--theme-nav-mobile-btn":"#504A40","--theme-nav-bg":"rgba(244, 242, 233, 0.9)","--theme-nav-border":"#DCD5C6","--theme-nav-active":"#6B8E23"},
+      "interactive": {"--theme-button-primary-bg":"#6B8E23","--theme-button-primary-hover":"#556B2F","--theme-button-primary-text":"#FFFFFF","--theme-button-secondary-bg":"#DCD5C6","--theme-button-secondary-hover":"#C0B6A2","--theme-button-secondary-text":"#504A40","--theme-link-color":"#6B8E23","--theme-link-hover":"#4682B4","--theme-input-bg":"#FFFFFF","--theme-input-border":"#C0B6A2","--theme-input-focus":"#6B8E23","--theme-input-text":"#504A40","--theme-input-placeholder":"#A0988C", "--theme-form-checkbox-accent": "#6B8E23", "--theme-form-radio-accent": "#6B8E23"},
+      "cards": {"--theme-card-bg":"#FFFFFF","--theme-card-border":"transparent","--theme-card-title":"#504A40","--theme-card-subtitle":"#7A7060","--theme-card-icon":"#6B8E23","--theme-card-shadow":"0 2px 8px rgba(80, 74, 64, 0.08)"},
+      "badges": {"--theme-badge-primary-bg":"rgba(107, 142, 35, 0.1)","--theme-badge-primary-text":"#556B2F","--theme-badge-success-bg":"rgba(85, 107, 47, 0.1)","--theme-badge-success-text":"#445625","--theme-badge-warning-bg":"rgba(184, 134, 11, 0.15)","--theme-badge-warning-text":"#8B4513","--theme-badge-error-bg":"rgba(165, 42, 42, 0.1)","--theme-badge-error-text":"#8B2222","--theme-badge-info-bg":"rgba(70, 130, 180, 0.1)","--theme-badge-info-text":"#3A6890"},
+      "progress": {"--theme-progress-bg":"#DCD5C6","--theme-progress-primary":"#6B8E23","--theme-progress-success":"#556B2F"},
+      "alerts": {"--theme-alert-info-bg":"rgba(70, 130, 180, 0.1)","--theme-alert-info-border":"#4682B4","--theme-alert-info-text":"#3A6890","--theme-alert-success-bg":"rgba(107, 142, 35, 0.1)","--theme-alert-success-border":"#6B8E23","--theme-alert-success-text":"#556B2F","--theme-alert-warning-bg":"rgba(184, 134, 11, 0.15)","--theme-alert-warning-border":"#B8860B","--theme-alert-warning-text":"#8B4513","--theme-alert-error-bg":"rgba(165, 42, 42, 0.1)","--theme-alert-error-border":"#A52A2A","--theme-alert-error-text":"#8B2222"},
+      "modals": {"--theme-modal-overlay":"rgba(0, 0, 0, 0.5)","--theme-modal-content-bg":"#F4F2E9","--theme-modal-title":"#504A40","--theme-modal-body":"#7A7060"},
+      "tabs": {"--theme-tab-button-text":"#7A7060","--theme-tab-button-active-text":"#6B8E23","--theme-tab-button-active-indicator":"#6B8E23"},
+      "accordions": {"--theme-accordion-bg":"#EAE6DB","--theme-accordion-border":"#DCD5C6","--theme-accordion-title":"#504A40","--theme-accordion-icon":"#7A7060", "--theme-accordion-body-text": "#7A7060"},
+      "tables": {"--theme-table-header-bg": "#F4F2E9", "--theme-table-cell-border": "#EAE6DB", "--theme-table-row-hover": "#F4F2E9"},
+      "effects": {"--theme-shadow-soft":"0 2px 8px rgba(80, 74, 64, 0.08)","--theme-shadow-medium":"0 5px 15px rgba(80, 74, 64, 0.12)","--theme-shadow-strong":"0 10px 25px rgba(80, 74, 64, 0.15)"}
+    },
+    "dark": {
+      "basic": {"--theme-body-bg":"#22272E","--theme-section-bg":"#2D333B","--theme-card-bg":"#373E47","--theme-text-primary":"#C9D1D9","--theme-text-secondary":"#8B949E","--theme-text-tertiary":"#6E7681","--theme-accent-primary":"#58A6FF","--theme-accent-secondary":"#6B8E23","--theme-border-light":"#373E47","--theme-border-medium":"#444C56"},
+      "navigation": {"--theme-nav-brand":"#C9D1D9","--theme-nav-link":"#8B949E","--theme-nav-link-hover":"#58A6FF","--theme-nav-mobile-btn":"#C9D1D9","--theme-nav-bg":"rgba(34, 39, 46, 0.9)","--theme-nav-border":"rgba(255, 255, 255, 0.1)","--theme-nav-active":"#58A6FF"},
+      "interactive": {"--theme-button-primary-bg":"#58A6FF","--theme-button-primary-hover":"#3B82F6","--theme-button-primary-text":"#22272E","--theme-button-secondary-bg":"#373E47","--theme-button-secondary-hover":"#444C56","--theme-button-secondary-text":"#C9D1D9","--theme-link-color":"#58A6FF","--theme-link-hover":"#6B8E23","--theme-input-bg":"#2D333B","--theme-input-border":"#444C56","--theme-input-focus":"#58A6FF","--theme-input-text":"#C9D1D9","--theme-input-placeholder":"#6E7681", "--theme-form-checkbox-accent": "#58A6FF", "--theme-form-radio-accent": "#58A6FF"},
+      "cards": {"--theme-card-bg":"#373E47","--theme-card-border":"transparent","--theme-card-title":"#C9D1D9","--theme-card-subtitle":"#8B949E","--theme-card-icon":"#58A6FF","--theme-card-shadow":"0 4px 12px rgba(0, 0, 0, 0.3)"},
+      "badges": {"--theme-badge-primary-bg":"rgba(88, 166, 255, 0.15)","--theme-badge-primary-text":"#82B1FF","--theme-badge-success-bg":"rgba(107, 142, 35, 0.15)","--theme-badge-success-text":"#BDB76B","--theme-badge-warning-bg":"rgba(210, 153, 34, 0.15)","--theme-badge-warning-text":"#DAA520","--theme-badge-error-bg":"rgba(218, 54, 51, 0.15)","--theme-badge-error-text":"#FA8072","--theme-badge-info-bg":"rgba(107, 142, 35, 0.15)","--theme-badge-info-text":"#BDB76B"},
+      "progress": {"--theme-progress-bg":"#2D333B","--theme-progress-primary":"#58A6FF","--theme-progress-success":"#6B8E23"},
+      "alerts": {"--theme-alert-info-bg":"rgba(88, 166, 255, 0.15)","--theme-alert-info-border":"#58A6FF","--theme-alert-info-text":"#82B1FF","--theme-alert-success-bg":"rgba(107, 142, 35, 0.15)","--theme-alert-success-border":"#6B8E23","--theme-alert-success-text":"#BDB76B","--theme-alert-warning-bg":"rgba(210, 153, 34, 0.15)","--theme-alert-warning-border":"#D29922","--theme-alert-warning-text":"#DAA520","--theme-alert-error-bg":"rgba(218, 54, 51, 0.15)","--theme-alert-error-border":"#DA3633","--theme-alert-error-text":"#FA8072"},
+      "modals": {"--theme-modal-overlay":"rgba(0, 0, 0, 0.7)","--theme-modal-content-bg":"#2D333B","--theme-modal-title":"#C9D1D9","--theme-modal-body":"#8B949E"},
+      "tabs": {"--theme-tab-button-text":"#8B949E","--theme-tab-button-active-text":"#58A6FF","--theme-tab-button-active-indicator":"#58A6FF"},
+      "accordions": {"--theme-accordion-bg":"#2D333B","--theme-accordion-border":"#444C56","--theme-accordion-title":"#C9D1D9","--theme-accordion-icon":"#8B949E", "--theme-accordion-body-text": "#8B949E"},
+      "tables": {"--theme-table-header-bg": "#2D333B", "--theme-table-cell-border": "#444C56", "--theme-table-row-hover": "#2D333B"},
+      "effects": {"--theme-shadow-soft":"0 4px 12px rgba(0, 0, 0, 0.3)","--theme-shadow-medium":"0 8px 24px rgba(0, 0, 0, 0.5)","--theme-shadow-strong":"0 12px 32px rgba(0, 0, 0, 0.7)"}
+    }
+  },
+  "spacing": {"--space-xs":"4px","--space-sm":"8px","--space-md":"16px","--space-lg":"24px","--space-xl":"32px","--space-2xl":"48px","--space-3xl":"64px"},
+  "radius": {"--radius-sm":"4px","--radius-md":"8px","--radius-lg":"12px","--radius-xl":"16px","--radius-2xl":"24px","--radius-full":"9999px"}
+}; 
