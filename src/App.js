@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { Palette, Sun, Moon, Image as ImageIcon, Type, Loader, ServerCrash, Wand2, Info, AlertTriangle, CheckCircle, Copy, Download, MessageSquare, Shield, SlidersHorizontal, ChevronDown, X, Smartphone, Tablet, Monitor, Sparkles, ImagePlus, BotMessageSquare, BrainCircuit, KeyRound, Save, RotateCcw } from 'lucide-react';
 import { initialTheme } from './initialTheme';
-import './themeStyles.css';
 
 
 // =================================================================
@@ -654,6 +653,45 @@ export default function App() {
 
   return (
     <>
+      <style>{`
+        :root { --font-primary: sans-serif; --font-title: sans-serif; --radius-sm: 4px; --radius-md: 8px; --radius-lg: 12px; --radius-full: 9999px; }
+        body { background: var(--theme-body-bg); color: var(--theme-text-primary); font-family: var(--font-primary); transition: background 0.3s ease, color 0.3s ease; }
+        .title-font { font-family: var(--font-title); }
+        .text-primary { color: var(--theme-text-primary); } .text-secondary { color: var(--theme-text-secondary); } .text-tertiary { color: var(--theme-text-tertiary); }
+        .bg-body-bg { background: var(--theme-body-bg); } .bg-section-bg { background-color: var(--theme-section-bg); } .bg-card-bg { background-color: var(--theme-card-bg); }
+        .border-border-light { border-color: var(--theme-border-light); } .border-border-medium { border-color: var(--theme-border-medium); }
+        .text-accent-primary { color: var(--theme-accent-primary); }
+        .card-title { color: var(--theme-card-title); } .card-subtitle { color: var(--theme-card-subtitle); } .card-icon { color: var(--theme-card-icon); }
+        .btn-primary { background-color: var(--theme-button-primary-bg); color: var(--theme-button-primary-text); } .btn-primary:hover { background-color: var(--theme-button-primary-hover); }
+        .btn-secondary { background-color: var(--theme-button-secondary-bg); color: var(--theme-button-secondary-text); } .btn-secondary:hover { background-color: var(--theme-button-secondary-hover); }
+        .link-color { color: var(--theme-link-color); } .link-hover:hover { color: var(--theme-link-hover); }
+        .input-bg { background-color: var(--theme-input-bg); } .input-border { border: 1px solid var(--theme-input-border); } .input-focus:focus { border-color: var(--theme-input-focus); }
+        .placeholder-tertiary::placeholder { color: var(--theme-text-tertiary); }
+        .rounded-sm { border-radius: var(--radius-sm); } .rounded-md { border-radius: var(--radius-md); } .rounded-lg { border-radius: var(--radius-lg); } .rounded-full { border-radius: var(--radius-full); }
+        .alert-error-bg { background-color: var(--theme-alert-error-bg, #fee2e2); } .alert-error-border { border-color: var(--theme-alert-error-border, #fca5a5); } .alert-error-text { color: var(--theme-alert-error-text, #991b1b); }
+        .modal-overlay { background-color: var(--theme-modal-overlay, rgba(0,0,0,0.5)); } .modal-content-bg { background-color: var(--theme-modal-content-bg); }
+        .modal-title { color: var(--theme-modal-title); } .modal-body { color: var(--theme-modal-body); }
+        .tab-button { color: var(--theme-tab-button-text); padding: 0.75rem 1rem; font-weight: 600; border-bottom: 2px solid transparent; display: inline-flex; align-items: center; }
+        .tab-button:hover { color: var(--theme-tab-button-active-text); }
+        .tab-active { color: var(--theme-tab-button-active-text); border-color: var(--theme-tab-button-active-indicator); }
+        .accordion-bg { background-color: var(--theme-accordion-bg); } .accordion-border { border-bottom: 1px solid var(--theme-accordion-border); }
+        .accordion-title { color: var(--theme-accordion-title); } .accordion-icon { color: var(--theme-accordion-icon); } .accordion-body-text { color: var(--theme-accordion-body-text); }
+        .form-checkbox { color: var(--theme-form-checkbox-accent); } .form-radio { color: var(--theme-form-radio-accent); }
+        .table-header-bg { background-color: var(--theme-table-header-bg); } .table-cell-border { border-bottom: 1px solid var(--theme-table-cell-border); }
+        .table-row-hover:hover { background-color: var(--theme-table-row-hover); }
+        .nav-bg { background-color: var(--theme-nav-bg); } .nav-brand { color: var(--theme-nav-brand); }
+        .nav-link { color: var(--theme-nav-link); transition: color 0.2s; } .nav-link:hover { color: var(--theme-nav-link-hover); }
+        .nav-link-active { color: var(--theme-nav-active); } .nav-mobile-btn { color: var(--theme-nav-mobile-btn); }
+        .nav-border { border-color: var(--theme-nav-border); }
+        .badge-primary-bg { background-color: var(--theme-badge-primary-bg); } .badge-primary-text { color: var(--theme-badge-primary-text); }
+        .badge-success-bg { background-color: var(--theme-badge-success-bg); } .badge-success-text { color: var(--theme-badge-success-text); }
+        .badge-warning-bg { background-color: var(--theme-badge-warning-bg); } .badge-warning-text { color: var(--theme-badge-warning-text); }
+        .badge-error-bg { background-color: var(--theme-badge-error-bg); } .badge-error-text { color: var(--theme-badge-error-text); }
+        .badge-info-bg { background-color: var(--theme-badge-info-bg); } .badge-info-text { color: var(--theme-badge-info-text); }
+        .alert-info-bg { background-color: var(--theme-alert-info-bg); } .alert-info-border { border-color: var(--theme-alert-info-border); } .alert-info-text { color: var(--theme-alert-info-text); }
+        .alert-success-bg { background-color: var(--theme-alert-success-bg); } .alert-success-border { border-color: var(--theme-alert-success-border); } .alert-success-text { color: var(--theme-alert-success-text); }
+        .alert-warning-bg { background-color: var(--theme-alert-warning-bg); } .alert-warning-border { border-color: var(--theme-alert-warning-border); } .alert-warning-text { color: var(--theme-alert-warning-text); }
+      `}</style>
       <div className="min-h-screen w-full flex flex-col lg:flex-row" style={{maxWidth: '1920px', margin: '0 auto'}}>
         <aside className="w-full lg:w-1/3 lg:max-w-md xl:max-w-lg p-4 space-y-4 bg-section-bg border-r border-border-light overflow-y-auto">
           <header className="flex items-center justify-between p-2">
